@@ -13,6 +13,6 @@
   "packs": [],
   "minimumCoreVersion": "0.7.0",
   "compatibleCoreVersion": "0.7.4",
-  "manifest": "https://raw.githubusercontent.com/DMilyukov/FVTT-DS-Import/master/module.json",
-  "download": "https://github.com/DMilyukov/FVTT-DS-Import/releases/download/0.1/ds-import.zip"
+  "manifest": "https://github.com/DMilyukov/FVTT-DS-Import/blob/main/module.json",
+  "download": "https://github.com/DMilyukov/FVTT-DS-Import/archive/main.zip"
 }
