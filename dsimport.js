@@ -1,6 +1,6 @@
 Hooks.on("renderSidebarTab", async (app, html) => {
   if (app.options.id == "scenes") {
-    let button = $("<button class='import-dd'><i class='fas fa-file-import'></i> Dungeondraft Import</button>")
+    let button = $("<button class='import-ds'><i class='fas fa-file-import'></i> Dungeon Scrawl Import</button>")
  
     button.click(function () {
       //nothing yet
