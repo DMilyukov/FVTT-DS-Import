@@ -3,7 +3,7 @@ Hooks.on("renderSidebarTab", async (app, html) => {
     let button = $("<button class='import-ds'><i class='fas fa-file-import'></i> Dungeon Scrawl Import</button>")
  
     button.click(function () {
-      //nothing yet
+      new DSImporter().render(true);
     });
     
     html.find(".directory-footer").append(button);
@@ -29,3 +29,23 @@ Hooks.on("init", () => {
     }
   })
 })
+
+class DSImporter extends Application
+{
+
+
+  static get defaultOptions()
+  {
+      const options = super.defaultOptions;
+      options.id = "ds-importer";
+      options.template = "modules/ds-import/importer.html"
+      options.classes.push("ds-importer");
+      options.resizable = false;
+      options.height = "auto";
+      options.width = 400;
+      options.minimizable = true;
+      options.title = "Dungeon Scrawl Importer"
+      return options;
+  }
+  
+}
