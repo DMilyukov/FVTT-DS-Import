@@ -48,4 +48,15 @@ class DSImporter extends Application
       return options;
   }
   
-}
+  activateListeners(html)
+  {
+    super.activateListeners(html)
+
+    html.find(".import-map").click(async ev => {
+      try 
+      {
+        ui.notifications.notify("creating scene")
+      }
+    }
+        
+  }
