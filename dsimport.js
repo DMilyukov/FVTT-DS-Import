@@ -61,6 +61,6 @@ class DSImporter extends Application
       {
         ui.notifications.error("Error Importing: " + e)
       }
-    }
+    })
         
   }
