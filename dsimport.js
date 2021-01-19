@@ -56,6 +56,7 @@ class DSImporter extends Application
       try 
       {
         ui.notifications.notify("creating scene")
+        DSImporter.DSImport(fila
       }
       catch (e)
       {
@@ -64,4 +65,23 @@ class DSImporter extends Application
     })
         
   }
+  
+  static async DSImport(imagePath, sceneName) {
+      
+    let newScene = new Scene({
+      name: sceneName,
+      grid: 70,
+      img: imagePath,
+      width: 200,
+      height: 200,
+      padding: 0,
+      shiftX : 0,
+      shiftY : 0
+    })
+    let scene = await Scene.create(newScene.data);
+    scene.createThumbnail().then(thumb => {
+      scene.update({"thumb" :  thumb.thumb});
+    })
+  }
+  
 }
