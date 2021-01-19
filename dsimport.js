@@ -57,6 +57,10 @@ class DSImporter extends Application
       {
         ui.notifications.notify("creating scene")
       }
+      catch (e)
+      {
+        ui.notifications.error("Error Importing: " + e)
+      }
     }
         
   }
