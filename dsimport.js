@@ -55,8 +55,11 @@ class DSImporter extends Application
     html.find(".import-map").click(async ev => {
       try 
       {
+        let sceneName = html.find('[name="sceneName"]').val()
+        let imageFileName = html.find('[name="filePNG"]').val()
+        
         ui.notifications.notify("creating scene")
-        DSImporter.DSImport(fila
+        DSImporter.DSImport(imageFileName, sceneName)
       }
       catch (e)
       {
