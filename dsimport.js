@@ -91,19 +91,9 @@ class DSImporter extends Application
     })
   }
   
-  static DecodeImage(file){
-    var byteString = atob(file.image);
-    var ab = new ArrayBuffer(byteString.length);
-    var ia = new Uint8Array(ab);
-
-    for (var i = 0; i < byteString.length; i++) {
-      ia[i] = byteString.charCodeAt(i);
-    }
-    return ab;
-  }
-  
   static async uploadFile(file, name, path, source, extension) {
     let uploadFile = new File([file], name + "." + extension, { type: 'image/' + extension });
+	ui.notifications.notify((name + "." + extension))
     await FilePicker.upload(source, path, uploadFile)
   }
   
