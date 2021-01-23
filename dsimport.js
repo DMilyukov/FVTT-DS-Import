@@ -58,9 +58,9 @@ class DSImporter extends Application
         let sceneName = html.find('[name="sceneName"]').val()
 		let imgFile = html.find('[name="filePNG"]').files[0]
 		
-		let bfr = DSImporter.DecodeImage(imgFile)
+		//let bfr = DSImporter.DecodeImage(imgFile)
         ui.notifications.notify("Uploading image ....")
-        DSImporter.uploadFile(bfr, imageFileName, "DS-Import-upload", "local_file_system", "png")
+        DSImporter.uploadFile(imgFile, imageFileName, "DS-Import-upload", "local_file_system", "png")
 		
         ui.notifications.notify("creating scene")
         DSImporter.DSImport(imageFileName, sceneName)
