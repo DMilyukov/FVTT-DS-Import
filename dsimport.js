@@ -55,22 +55,44 @@ class DSImporter extends Application
     html.find(".import-map").click(async ev => {
       try 
       {
-        let sceneName = html.find('[name="sceneName"]').val()
+        //let sceneName = html.find('[name="sceneName"]').val()
         //let imgFile = html.find('[name="filePNG"]').files[0]
-	const selectedFile = document.getElementById('filePNG').files[0];
-        let imageFileName = html.find('[name="filePNG"]').val()
+        //const selectedFile = document.getElementById('filePNG').files[0];
+        //let imageFileName = html.find('[name="filePNG"]').val()
 		
         //let bfr = DSImporter.DecodeImage(selectedFile)
-        ui.notifications.notify("Uploading image ....")
-        DSImporter.uploadFile(selectedFile, imageFileName, "DS-Import-upload", "local_file_system", "png")
+        //ui.notifications.notify("Uploading image ....")
+        //DSImporter.uploadFile(selectedFile, imageFileName, "DS-Import-upload", "local_file_system", "png")
 		
-        ui.notifications.notify("creating scene")
-	var onlyFilename = imageFileName.replace(/^.*[\\\/]/, '')
+        //ui.notifications.notify("creating scene")
+		//var onlyFilename = imageFileName.replace(/^.*[\\\/]/, '')
         DSImporter.DSImport("DS-Import-upload/"+onlyFilename, sceneName)
       }
       catch (e)
       {
         ui.notifications.error("Error Importing: " + e)
+      }
+    })
+	
+    html.find(".select-ds").click(async ev => {
+      try 
+      {
+		  
+      }
+      catch (e)
+      {
+        ui.notifications.error("Error selecting: " + e)
+      }
+    })
+	
+    html.find(".select-png").click(async ev => {
+      try 
+      {
+		   let response = await FilePicker.browse()
+      }
+      catch (e)
+      {
+        ui.notifications.error("Error selecting: " + e)
       }
     })
         
