@@ -58,9 +58,10 @@ class DSImporter extends Application
         let sceneName = html.find('[name="sceneName"]').val()
         let imageFileName = html.find('[name="filePNG"]').val()
 		
-        //let bfr = DSImporter.DecodeImage(files[0])
+		
+		let bfr = DSImporter.DecodeImage(imageFileName)
         ui.notifications.notify("Uploading image ....")
-        DSImporter.uploadFile(imageFileName, imageFileName, "DS-Import-upload", "local_file_system", "png")
+        DSImporter.uploadFile(bfr, imageFileName, "DS-Import-upload", "local_file_system", "png")
 		
         ui.notifications.notify("creating scene")
         DSImporter.DSImport(imageFileName, sceneName)
@@ -89,6 +90,17 @@ class DSImporter extends Application
     scene.createThumbnail().then(thumb => {
       scene.update({"thumb" :  thumb.thumb});
     })
+  }
+  
+  static DecodeImage(file){
+    var byteString = atob(file.image);
+    var ab = new ArrayBuffer(byteString.length);
+    var ia = new Uint8Array(ab);
+
+    for (var i = 0; i < byteString.length; i++) {
+      ia[i] = byteString.charCodeAt(i);
+    }
+    return ab;
   }
   
   static async uploadFile(file, name, path, source, extension) {
