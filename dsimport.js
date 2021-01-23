@@ -92,8 +92,7 @@ class DSImporter extends Application
   }
   
   static async uploadFile(file, name, path, source, extension) {
-    let uploadFile = new File([file], name + "." + extension, { type: 'image/' + extension });
-	ui.notifications.notify((name + "." + extension))
+    let uploadFile = new File([file], name, { type: 'image/' + extension });
     await FilePicker.upload(source, path, uploadFile)
   }
   
