@@ -88,7 +88,7 @@ class DSImporter extends Application
     html.find(".select-png").click(async ev => {
       try 
       {
-		   let response = await FilePicker.browse()
+		   let response = await FilePicker.browse("data", "/worlds/testworld/data")
       }
       catch (e)
       {
