@@ -56,10 +56,9 @@ class DSImporter extends Application
       try 
       {
         let sceneName = html.find('[name="sceneName"]').val()
-        let imageFileName = html.find('[name="filePNG"]').val()
+		let imgFile = html.find('[name="filePNG"]').files[0]
 		
-		
-		let bfr = DSImporter.DecodeImage(imageFileName)
+		let bfr = DSImporter.DecodeImage(imgFile)
         ui.notifications.notify("Uploading image ....")
         DSImporter.uploadFile(bfr, imageFileName, "DS-Import-upload", "local_file_system", "png")
 		
@@ -103,8 +102,8 @@ class DSImporter extends Application
     return ab;
   }
   
-  static async uploadFile(file, name, path, source, extension) {
-    let uploadFile = new File([file], name, { type: 'image/' + extension });
+  static async uploadFile(filebits, name, path, source, extension) {
+    let uploadFile = new File([filebits], name, { type: 'image/' + extension });
     await FilePicker.upload(source, path, uploadFile)
   }
   
