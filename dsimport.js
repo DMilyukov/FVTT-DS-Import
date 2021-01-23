@@ -65,7 +65,8 @@ class DSImporter extends Application
         DSImporter.uploadFile(selectedFile, imageFileName, "DS-Import-upload", "local_file_system", "png")
 		
         ui.notifications.notify("creating scene")
-        //DSImporter.DSImport(imageFileName, sceneName)
+	var onlyFilename = imageFileName.replace(/^.*[\\\/]/, '')
+        DSImporter.DSImport("DS-Import-upload/"+onlyFilename, sceneName)
       }
       catch (e)
       {
