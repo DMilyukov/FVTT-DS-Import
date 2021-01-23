@@ -56,7 +56,7 @@ class DSImporter extends Application
       try 
       {
         let sceneName = html.find('[name="sceneName"]').val()
-        let imgFile = html.find('[name="filePNG"]').files[0]
+        //let imgFile = html.find('[name="filePNG"]').files[0]
         let imageFileName = html.find('[name="filePNG"]').val()
 		
         //let bfr = DSImporter.DecodeImage(imgFile)
